@@ -24,9 +24,10 @@ module beambody(length){
 
 // Cutouts for stud/pin holes in beams
 module studhole(length=1){
-	cylinder(beamh*u,studr+play/2,studr+play/2);
-	cylinder(0.5*u,3.5*0.5*u,3.5*0.5*u);
-	translate([0,0,beamh-0.5*u]) cylinder(0.5*u,3.5*0.5*u,3.5*0.5*u);
+	cylinder(beamh*u, studr+play/2, studr+play/2);
+	for (i = [0, beamh-0.5*u]) {
+		translate([0,0,i]) cylinder(0.5*u, 3.5*0.5*u, 3.5*0.5*u);
+	}
 }
 
 
