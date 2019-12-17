@@ -50,17 +50,11 @@ module lbeam(length=4, width=3) {
 
 // Axle
 module axle(length=2, hole=false) {
-	if (hole) {
-		translate([0, 0, length*beamw/2]) {
-			cube([u + play, 4.7 + play, length*beamw], center=true);
-			cube([4.7 + play, u + play, length*beamw], center=true);
-		}
-	}
-	else {
-		translate([0, 0, length*beamw/2]) {
-			cube([u, 4.7, length*beamw], center=true);
-			cube([4.7, u, length*beamw], center=true);
-		}
+	a = hole ? u+play : u;
+	b = hole ? 4.7+play : 4.7;
+	translate([0, 0, length*beamw/2]) {
+		cube([a, b, length*beamw], center=true);
+		cube([b, a, length*beamw], center=true);
 	}
 }
 
