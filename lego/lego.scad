@@ -23,7 +23,7 @@ module beambody(length){
 module studhole(length=1){
 	r = studr+play/2;
 	R = 3.5*0.5*u;
-	cylinder(beamh*u, r, r);
+	cylinder(beamh*length, r, r);
 	for (i = [0, beamh-0.5*u]) {
 		translate([0,0,i]) cylinder(0.5*u, R, R);
 	}
