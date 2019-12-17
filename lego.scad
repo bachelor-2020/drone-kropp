@@ -1,12 +1,13 @@
 $fn=100;
-u=1.6;
-play=0.1;
-studr=3*0.5*u;
+u=1.6; // One lego unit
+play=0.1; // Tolerance of holes
+studr=3*0.5*u; // Radius of stud/pin
 beamh=5*u;
 beamw=5*u;
 
 ZEROISH=0.000000000000001;
 
+// Body of lego beam without holes
 module beambody(length){
 	translate([0,0,2.5*u])
 	minkowski() {
@@ -21,6 +22,7 @@ module beambody(length){
 	}
 }
 
+// Cutouts for stud/pin holes in beams
 module studhole(length=1){
 	cylinder(beamh*u,studr+play/2,studr+play/2);
 	cylinder(0.5*u,3.5*0.5*u,3.5*0.5*u);
@@ -28,6 +30,7 @@ module studhole(length=1){
 }
 
 
+// Beam with holes
 module beam(length) {
 	difference(){
 		translate([0,length*5*u/2,0])
@@ -38,11 +41,13 @@ module beam(length) {
 	}
 }
 
+// L shaped beam
 module lbeam(length=4, width=3) {
 	translate([0,-4,0]) beam(length);
 	rotate([0,0,90]) translate([0,-4,0]) beam(width);
 }
 
+// Axle
 module axle(length=2, hole=false) {
 	if (hole) {
 		translate([0,0,length*beamw/2]) {
@@ -58,6 +63,7 @@ module axle(length=2, hole=false) {
 	}
 }
 
+// Cutout for axle holes
 module axlehole(length) {
 	axle(length,true);
 }
