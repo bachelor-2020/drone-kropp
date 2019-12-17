@@ -9,7 +9,7 @@ ZEROISH = 0.000000000000001;
 
 // Body of lego beam without holes
 module beambody(length){
-	translate([0, 0, 2.5*u])
+	translate([0, 0, beamh/2])
 	minkowski() {
 		cube([ZEROISH,
 				length*5*u - beamw,
@@ -21,9 +21,11 @@ module beambody(length){
 
 // Cutouts for stud/pin holes in beams
 module studhole(length=1){
-	cylinder(beamh*u, studr+play/2, studr+play/2);
+	r = studr+play/2;
+	R = 3.5*0.5*u;
+	cylinder(beamh*u, r, r);
 	for (i = [0, beamh-0.5*u]) {
-		translate([0,0,i]) cylinder(0.5*u, 3.5*0.5*u, 3.5*0.5*u);
+		translate([0,0,i]) cylinder(0.5*u, R, R);
 	}
 }
 
