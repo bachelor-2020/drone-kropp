@@ -63,8 +63,3 @@ module axle(length=2, hole=false) {
 module axlehole(length) {
 	axle(length, true);
 }
-
-difference(){
-translate([0,0,3.5]) cube(7,center=true);
-axlehole(3);
-}
