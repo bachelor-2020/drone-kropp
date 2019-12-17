@@ -1,6 +1,6 @@
 $fn = 100;
 u = 1.6; // One lego unit
-play = 0.1; // Tolerance of holes
+play = 0.226*u; // Tolerance of holes
 studr = 3*0.5*u; // Radius of stud/pin
 beamh = 5*u;
 beamw = 5*u;
