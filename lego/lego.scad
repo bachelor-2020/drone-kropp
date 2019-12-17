@@ -60,6 +60,6 @@ module axle(length=2, hole=false) {
 }
 
 // Cutout for axle holes
-module axlehole(length) {
+module axlehole(length=1) {
 	axle(length, true);
 }
