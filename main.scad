@@ -22,16 +22,14 @@ module rpi_mount(){
 }
 
 
-for (j = [-1,1]){
 
-	translate([j*43,28,0])
-	rotate([0,0,-j*45])
+for (i = [0,1])
+for (j = [0,1])
+	mirror([i,0,0])
+	mirror([0,j,0])
+	translate([43,28,0])
+	rotate([0,0,-45])
 	armmount_vertical();
-
-	translate([j*43,-28,0])
-	rotate([0,0,-j*135])
-	armmount_vertical();
-}
 
 translate([0,0,beamw/2])
 difference(){
