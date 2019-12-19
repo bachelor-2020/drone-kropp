@@ -7,7 +7,9 @@ module rpi_cutout(height = 10, padding = 5){
 }
 
 module rpi(){
-translate([-3-RPI_LENGTH/2, -1.55-RPI_WIDTH/2,0])
+	x = -2.7716-RPI_LENGTH/2;
+	y = -1.55-RPI_WIDTH/2;
+	translate([x, y])
 	import("rpi.stl");
 }
 
@@ -18,7 +20,8 @@ module rpi_screwholes(height = 10){
 	translate([-RPI_LENGTH/2, 0, 0]){
 		for (x = [3.5, 61.5])
 		for (y = [-1,1]*(RPI_WIDTH/2 - 3.5)){
-			translate([x,y,0]) m3();
+			translate([x,y])
+			m3();
 		}
 	}
 }
