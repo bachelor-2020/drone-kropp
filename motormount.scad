@@ -9,25 +9,30 @@ module armbracket(){
 	}
 }
 
-module motorbracket(){
+module motorbracket(inner=12, outer=19, screwdia=3){
+	r = (outer/2 + screwdia)*1.05;
+	translate([0, r-2, 0])
 	difference(){
-		cylinder(3,30,30);
+		cylinder(3,r,r);
 		rotate([0,0,45])
 		for (i = [0:90:360]){
-			hull() for(j = [16,19])
-			rotate([0,0,i])
-			translate([j,0,0])
-			cylinder(3,3.2,3.2);
+			hull()
+			for (j = [inner,outer]/2)
+			rotate ([0,0,i])
+			translate ([j,0,0])
+			cylinder (3, screwdia*1.1/2, screwdia*1.1/2);
 		}
-		translate([-30,-30,0])
-		cube([30*2,2,3]);
+		translate([-r,-r,0])
+		cube([r*2,2,3]);
 
 	}
 }
 
-translate([0,30+beamw-2,0])
-motorbracket();
+module motormount(){
+	motorbracket();
 
-translate([-beamw/2,0,beamw*1.5])
-rotate([0,90,0])
-armbracket();
+	rotate([90,0,0])
+	translate([-beamw/2,0,beamw*1.5])
+	rotate([0,90,0])
+	armbracket();
+}
