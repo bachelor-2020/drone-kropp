@@ -1,9 +1,9 @@
 RPI_WIDTH = 56;
 RPI_LENGTH = 85;
 
-module rpi_cutout(height = 10){
+module rpi_cutout(height = 10, padding = 5){
 	translate([0,0,height/2])
-	cube([RPI_WIDTH, RPI_LENGTH, height], center=true);
+	cube([RPI_LENGTH+padding, RPI_WIDTH+padding, height], center=true);
 }
 
 module rpi(){
