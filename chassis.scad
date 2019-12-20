@@ -27,6 +27,21 @@ module rpi_mount_plate(){
 	}
 }
 
+module arm_bracket(){
+	translate([-beamw/2,0,beamw/2])
+	rotate([0,90,0])
+	difference(){
+		translate([0,-beamw,0])
+		beam(5);
+		translate([-beamw/2,-beamw,0])
+		cube(beamw);
+	}
+}
+
+for (d = [0:90:360])
+rotate([0,0,d+45])
+translate([0,radius,0])
+arm_bracket();
 
 rpi_mount_plate();
 #translate([0, 0, PLATE_THICKNESS])
