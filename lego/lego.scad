@@ -49,6 +49,64 @@ module lbeam(length=4, width=3) {
 	rotate([0, 0, 90]) translate([0, -4, 0]) beam(width);
 }
 
+// C shaped beam
+module cbeam(length=4, width=3) {
+	translate([0, -4, 0]) beam(width);
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([(1-length)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+}
+
+// O shaped beam
+module obeam(length=4, width=3) {
+	translate([0, -4, 0]) beam(width);
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([0, -(1-width)*5*u, 0])
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([(1-length)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+}
+
+// F shaped beam
+module fbeam(length=5, width=3) {
+	translate([(1-length)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([floor(1-length/2)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+}
+
+// E shaped beam
+module ebeam(length=5, width=3) {
+	translate([(1-length)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([floor(1-length/2)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+	translate([0, -4, 0]) beam(width);
+}
+
+// B shaped beam
+module bbeam(length=5, width=3) {
+	translate([(1-length)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([0,-(1-width)*5*u,0])
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([floor(1-length/2)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+	translate([0, -4, 0]) beam(width);
+}
+
+// H shaped beam
+module hbeam(length=5, width=3) {
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([0,-(1-width)*5*u,0])
+	rotate([0, 0, 90]) translate([0, -4, 0]) beam(length);
+	translate([floor(1-length/2)*5*u,0,0])
+	translate([0, -4, 0]) beam(width);
+}
+
 // Axle
 module axle(length=2, hole=false) {
 	a = hole ? u+play : u;
