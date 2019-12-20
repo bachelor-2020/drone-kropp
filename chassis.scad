@@ -1,5 +1,5 @@
 include <lego/lego.scad>
-include <RPI.scad>
+include <rpi/RPI.scad>
 
 PLATE_THICKNESS = beamh;
 module sandwich_plate(){
