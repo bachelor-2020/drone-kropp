@@ -61,5 +61,10 @@ module arm_bracket(length=4){
 	}
 }
 
+module arm_bracket_double(length=4){
+	for (x = [-1,1]*beamw){
+		translate([x,0,0]) arm_bracket(length);
+	}
+}
 
 rpi_mount_plate();
