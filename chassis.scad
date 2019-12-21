@@ -28,6 +28,10 @@ module rpi_mount_plate(){
 	difference(){
 		sandwich_plate();
 		rpi_screwholes();
+		translate([0,0,2]) {
+			rpi_cutout();
+			scale([0.9,0.9,1.1]) sandwich_plate();
+		}
 	}
 	#translate([0, 0, 2])
 	rpi();
