@@ -12,7 +12,7 @@ module rpi(){
 	x = -2.7716 - RPI_LENGTH/2;
 	y = -1.55 - RPI_WIDTH/2;
 	translate([x, y])
-	import("rpi.stl");
+	import("rpi/rpi.stl");
 }
 
 module rpi_screwholes(height = 10){
