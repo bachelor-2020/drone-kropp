@@ -37,12 +37,12 @@ module rpi_mount_plate(){
 	rpi();
 }
 
-module arm_bracket(){
+module arm_bracket(length=4){
 	translate([-beamw/2,0,beamw/2])
 	rotate([0,90,0])
 	difference(){
 		translate([0,-beamw,0])
-		beam(5);
+		beam(length+1);
 		translate([-beamw/2,-beamw,0])
 		cube(beamw);
 	}
