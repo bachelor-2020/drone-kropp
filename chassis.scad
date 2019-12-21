@@ -21,10 +21,16 @@ module sandwich_plate(){
 }
 
 module rpi_mount_plate(){
+	for (d = [0 : 90 : 360])
+		rotate([0, 0, d+45])
+		translate([0,radius,0])
+		arm_bracket(4);
 	difference(){
 		sandwich_plate();
 		rpi_screwholes();
 	}
+	#translate([0, 0, 2])
+	rpi();
 }
 
 module arm_bracket(){
@@ -38,11 +44,5 @@ module arm_bracket(){
 	}
 }
 
-for (d = [0:90:360])
-rotate([0,0,d+45])
-translate([0,radius,0])
-arm_bracket();
 
 rpi_mount_plate();
-#translate([0, 0, PLATE_THICKNESS])
-rpi();
