@@ -2,10 +2,10 @@ include <lego/lego.scad>
 include <rpi/RPI.scad>
 
 PLATE_THICKNESS = beamh;
-padding = 10;
+padding = 17;
 length = RPI_LENGTH + padding;
 diagonal = sqrt(1/2)*length;
-cutoff = 15;
+cutoff = 12;
 radius = diagonal-cutoff;
 
 module sandwich_plate(){
