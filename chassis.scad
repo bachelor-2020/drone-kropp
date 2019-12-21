@@ -37,6 +37,19 @@ module rpi_mount_plate(){
 	rpi();
 }
 
+module arm_plate(){
+	for (d = [0 : 90 : 360])
+		rotate([0, 0, d+45])
+		translate([0,radius,0])
+		arm_bracket(3);
+	difference(){
+		sandwich_plate();
+		translate([0,0,-0.1])
+		scale([0.9,0.9,1.1]) sandwich_plate();
+	}
+}
+
+
 module arm_bracket(length=4){
 	translate([-beamw/2,0,beamw/2])
 	rotate([0,90,0])
