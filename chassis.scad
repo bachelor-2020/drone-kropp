@@ -8,6 +8,13 @@ diagonal = sqrt(1/2)*length;
 cutoff = 12;
 radius = diagonal-cutoff;
 
+module place_on_corners(){
+	for (d = [0 : 90 : 360])
+		rotate([0, 0, d+45])
+		translate([0,radius,0])
+		children();
+}
+
 module sandwich_plate(){
 	difference(){
 		translate([0, 0, PLATE_THICKNESS/2])
@@ -21,10 +28,8 @@ module sandwich_plate(){
 }
 
 module rpi_mount_plate(){
-	for (d = [0 : 90 : 360])
-		rotate([0, 0, d+45])
-		translate([0,radius,0])
-		arm_bracket(4);
+	place_on_corners()
+	arm_bracket(2);
 	difference(){
 		sandwich_plate();
 		rpi_screwholes();
@@ -38,10 +43,8 @@ module rpi_mount_plate(){
 }
 
 module arm_plate(){
-	for (d = [0 : 90 : 360])
-		rotate([0, 0, d+45])
-		translate([0,radius,0])
-		arm_bracket(3);
+	place_on_corners()
+	arm_bracket(3);
 	difference(){
 		sandwich_plate();
 		translate([0,0,-0.1])
