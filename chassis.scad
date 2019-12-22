@@ -8,10 +8,10 @@ diagonal = sqrt(1/2)*length;
 cutoff = 12;
 radius = diagonal-cutoff;
 
-module place_on_corners(){
+module place_on_corners(distance=0){
 	for (d = [0 : 90 : 360])
 		rotate([0, 0, d+45])
-		translate([0,radius,0])
+		translate([0,radius+distance,0])
 		children();
 }
 
