@@ -27,9 +27,9 @@ module sandwich_plate(){
 	}
 }
 
-module rpi_mount_plate(){
+module rpi_mount_plate(bracket_length=1){
 	place_on_corners()
-	arm_bracket(2);
+	arm_bracket(bracket_length);
 	difference(){
 		sandwich_plate();
 		rpi_screwholes();
@@ -42,9 +42,9 @@ module rpi_mount_plate(){
 	rpi();
 }
 
-module arm_plate(){
+module arm_plate(bracket_length=3){
 	place_on_corners()
-	arm_bracket(3);
+	arm_bracket(bracket_length);
 	difference(){
 		sandwich_plate();
 		translate([0,0,-0.1])
