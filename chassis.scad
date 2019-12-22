@@ -69,5 +69,3 @@ module arm_bracket_double(length=4){
 		translate([x,0,0]) arm_bracket(length);
 	}
 }
-
-rpi_mount_plate();
