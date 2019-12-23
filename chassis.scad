@@ -27,6 +27,20 @@ module sandwich_plate(){
 	}
 }
 
+module arduino_mount_plate(bracket_length=1){
+	place_on_corners()
+		arm_bracket(bracket_length);
+	difference(){
+		sandwich_plate();
+		arduino_screwholes();
+		translate([0, 0, 2]) {
+			arduino_cutout();
+			scale([0.9, 0.9, 1.1])
+				sandwich_plate();
+		}
+	}
+}
+
 module rpi_mount_plate(bracket_length=1){
 	place_on_corners()
 		arm_bracket(bracket_length);
