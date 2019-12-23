@@ -1,5 +1,6 @@
 include <lego/lego.scad>
 include <rpi/RPI.scad>
+include <arduino/arduino.scad>
 
 PLATE_THICKNESS = beamh;
 padding = 17;
