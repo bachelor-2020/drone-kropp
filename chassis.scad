@@ -40,6 +40,8 @@ module arduino_mount_plate(bracket_length=1){
 				sandwich_plate();
 		}
 	}
+	#translate([0, 0, 2])
+	arduino();
 }
 
 module rpi_mount_plate(bracket_length=1){

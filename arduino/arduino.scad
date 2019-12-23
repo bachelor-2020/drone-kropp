@@ -28,3 +28,8 @@ module arduino_screwholes(height = 10){
 		}
 	}
 }
+
+module arduino(){
+	translate([-3.5,0])
+	import("arduino/arduino.stl");
+}
