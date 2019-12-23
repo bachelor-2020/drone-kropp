@@ -23,7 +23,7 @@ module arduino_screwholes(height = 10){
 		];
 
 		for (p = pos){
-			#translate(p)
+			translate(p)
 			m3();
 		}
 	}
