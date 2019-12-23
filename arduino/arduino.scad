@@ -17,7 +17,7 @@ module arduino_screwholes(height = 10){
 	translate([-ARDUINO_LENGTH/2, -ARDUINO_WIDTH/2, 0]){
 		pos = [
 			[15.3, 50.7],
-			[15.3, 2.5],
+			[14.0, 2.5],
 			[66.1, 7.6],
 			[66.1, 35.5]
 		];
