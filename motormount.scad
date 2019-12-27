@@ -52,4 +52,9 @@ module motormount(){
 	rotate([90, 0, 90])
 		translate([-beamw*1.5, 0, -beamw/2])
 		armbracket();
+
+	r = (19/2 + 3)*1.05;
+	#translate([0,r-2,0])
+	mirror([0,0,1])
+	import("EMAX_RSII_2206_2300kv.stl");
 }
