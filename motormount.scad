@@ -19,27 +19,28 @@ module motorbracket(inner=12, outer=19, screwdia=3){
 		cylinder (length, dia*1.1/2, dia*1.1/2);
 	}
 
+	thickness = 3;
 	r = (outer/2 + screwdia)*1.05;
 	translate([0, r-2, 0])
 	difference(){
 
 		// Main body of motor bracket
-		cylinder(3, r, r);
+		cylinder(thickness, r, r);
 
 		// Motor mounting slots
 		for (d = [0 : 90 : 360]){
 			rotate ([0, 0, d+45])
 			hull(){
 				translate ([inner/2, 0, 0])
-					screwhole(screwdia, 3);
+					screwhole(screwdia, thickness);
 				translate ([outer/2, 0, 0])
-					screwhole(screwdia, 3);
+					screwhole(screwdia, thickness);
 			}
 		}
 
 		// Cutoff for arm mount
 		translate([-r, -r, 0])
-			cube([r*2, 2, 3]);
+			cube([r*2, 2, thickness]);
 
 	}
 }
