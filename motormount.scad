@@ -13,6 +13,12 @@ module armbracket(){
 
 // Motor bracket is the part of motormount that motor screws into
 module motorbracket(inner=12, outer=19, screwdia=3){
+
+	// Screwholes
+	module screwhole(dia, length){
+		cylinder (length, dia*1.1/2, dia*1.1/2);
+	}
+
 	r = (outer/2 + screwdia)*1.05;
 	translate([0, r-2, 0])
 	difference(){
@@ -25,9 +31,9 @@ module motorbracket(inner=12, outer=19, screwdia=3){
 			rotate ([0, 0, d+45])
 			hull(){
 				translate ([inner/2, 0, 0])
-					cylinder (3, screwdia*1.1/2, screwdia*1.1/2);
+					screwhole(screwdia, 3);
 				translate ([outer/2, 0, 0])
-					cylinder (3, screwdia*1.1/2, screwdia*1.1/2);
+					screwhole(screwdia, 3);
 			}
 		}
 
