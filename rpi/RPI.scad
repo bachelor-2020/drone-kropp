@@ -24,8 +24,7 @@ module rpi_screwholes(height = 10){
 		cylinder(height, 1.6, 1.6);
 	}
 	translate([-RPI_LENGTH/2, 0, 0]){
-		for (x = [3.5, 61.5])
-		for (y = [-1,1]*(RPI_WIDTH/2 - 3.5)){
+		for (x = [3.5, 61.5], y = [-1,1]*(RPI_WIDTH/2 - 3.5)){
 			translate([x,y])
 			m3();
 		}
