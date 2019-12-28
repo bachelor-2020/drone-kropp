@@ -1,6 +1,7 @@
 include <lego/lego.scad>
 include <rpi/RPI.scad>
 include <arduino/arduino.scad>
+include <grideye/grideye.scad>
 
 PLATE_THICKNESS = beamh;
 padding = 17;
@@ -25,6 +26,20 @@ module sandwich_plate(){
 		// Cut off corners
 		place_on_corners(length)
 			cube(2*length, center=true);
+	}
+}
+
+module grideye_mount_plate(bracket_length=1){
+	place_on_corners()
+		arm_bracket(bracket_length);
+	difference(){
+		sandwich_plate();
+		grideye_screwholes();
+		translate([0, 0, 2]) {
+			grideye_cutout();
+			scale([0.9, 0.9, 1.1])
+				sandwich_plate();
+		}
 	}
 }
 
