@@ -10,7 +10,7 @@ translate([0, 0, 15*u]){
 }
 
 
-// F beam assembly
+// L beam assembly
 place_on_corners(){
 	for (i = [-1,1]*5*u)
 	mirror([0, 0, 1])
