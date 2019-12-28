@@ -1,0 +1,10 @@
+ - Add global configuration file
+ - Restructure assembly.scad to be more dynamic (use the config file)
+ - Add makefile or script to generate all parts for print
+ - Add debug flag and let placeholder models depend on this flag
+ - Add struts ("skråstag") to arms
+ - Add low resolution option for previewing purposes
+ - Add Grid-EYE thermal sensor
+ - Add Nvidia Jetson
+ - Add battery
+ - Possibly add README?
