@@ -11,7 +11,7 @@ module rpi_cutout(height = 10, padding = 5){
 module rpi(){
 	import("rpi/rpi.stl");
 
-	translate([-14.2, 0.2, 15])
+	translate([0, 0, 15])
 		import("rpi/navio2.stl");
 }
 
