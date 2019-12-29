@@ -1,8 +1,6 @@
  - Restructure assembly.scad to be more dynamic (use the config file)
  - Add makefile or script to generate all parts for print
- - Add debug flag and let placeholder models depend on this flag
  - Add struts ("skråstag") to arms
- - Add low resolution option for previewing purposes
  - Add Nvidia Jetson
  - Add battery
  - Add cameras
