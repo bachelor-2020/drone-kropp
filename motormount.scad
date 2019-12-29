@@ -1,3 +1,4 @@
+include <config/main_config.scad>
 include <lego/lego.scad>;
 
 // Arm bracket is the part of motormount that the arm screws into
@@ -12,7 +13,7 @@ module armbracket(){
 
 
 // Motor bracket is the part of motormount that motor screws into
-module motorbracket(inner=12, outer=19, screwdia=3){
+module motorbracket(inner=MOTOR_SCREW_DISTANCE_MIN, outer=MOTOR_SCREW_DISTANCE_MAX, screwdia=MOTOR_SCREW_DIA){
 
 	// Screwholes
 	module screwhole(dia, length){
@@ -45,8 +46,9 @@ module motorbracket(inner=12, outer=19, screwdia=3){
 		}
 
 		// Motor placeholder model
-		#mirror([0, 0, 1])
-		import("EMAX_RSII_2206_2300kv.stl");
+		if (PLACEHOLDERS)
+			#mirror([0, 0, 1])
+			import("EMAX_RSII_2206_2300kv.stl");
 	}
 }
 

@@ -1,3 +1,5 @@
+include <config/main_config.scad>
+
 include <lego/lego.scad>
 include <rpi/RPI.scad>
 include <arduino/arduino.scad>
@@ -55,8 +57,10 @@ module arduino_mount_plate(bracket_length=1){
 				sandwich_plate();
 		}
 	}
-	#translate([0, 0, 2])
-	arduino();
+
+	if (PLACEHOLDERS)
+		#translate([0, 0, 2])
+		arduino();
 }
 
 module rpi_mount_plate(bracket_length=1){
@@ -71,8 +75,10 @@ module rpi_mount_plate(bracket_length=1){
 				sandwich_plate();
 		}
 	}
-	#translate([0, 0, 2])
-	rpi();
+
+	if (PLACEHOLDERS)
+		#translate([0, 0, 2])
+		rpi();
 }
 
 module arm_plate(bracket_length=3){
