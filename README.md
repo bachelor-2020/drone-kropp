@@ -23,12 +23,11 @@ To use the project you will need these prerequisites:
  - Lidar (for obstacle detection and mapping)
  - Grid-EYE thermal sensor
 
+## Configuring
+Configuration is done through the main configuration file `config/main_config.scad`. Change parameters in this file as needed.
+
 ## Previewing
 To preview the assembled drone chassis, open assembly.scad and render it.
-
-### Configuring the preview
-For the moment configuration is a somewhat manual process, and is not very user friendly. Most configurations for the assembly preview can be done by changing parameters in assembly.scad. This is currently undocumented, but should be doable.
-
 
 ## Exporting the parts for print
 Exporting the parts for print is for the moment a manual process. It involves creating a new scad file,  or modifying assembly.scad to only show the part you want to export, then rendering and exporting the part as stl. This process will hopefully become more user friendly in the future. There are plans to make an automated process for this, as well as global configuration of the project.
