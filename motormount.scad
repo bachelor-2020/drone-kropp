@@ -21,27 +21,32 @@ module motorbracket(inner=12, outer=19, screwdia=3){
 
 	thickness = 3;
 	r = (outer/2 + screwdia)*1.05;
-	translate([0, r-2, 0])
-	difference(){
+	translate([0, r-2, 0]){
+		difference(){
 
-		// Main body of motor bracket
-		cylinder(thickness, r, r);
+			// Main body of motor bracket
+			cylinder(thickness, r, r);
 
-		// Motor mounting slots
-		for (d = [0 : 90 : 360]){
-			rotate ([0, 0, d+45])
-			hull(){
-				translate ([inner/2, 0, 0])
-					screwhole(screwdia, thickness);
-				translate ([outer/2, 0, 0])
-					screwhole(screwdia, thickness);
+			// Motor mounting slots
+			for (d = [0 : 90 : 360]){
+				rotate ([0, 0, d+45])
+				hull(){
+					translate ([inner/2, 0, 0])
+						screwhole(screwdia, thickness);
+					translate ([outer/2, 0, 0])
+						screwhole(screwdia, thickness);
+				}
 			}
+
+			// Cutoff for arm mount
+			translate([-r, -r, 0])
+				cube([r*2, 2, thickness]);
+
 		}
 
-		// Cutoff for arm mount
-		translate([-r, -r, 0])
-			cube([r*2, 2, thickness]);
-
+		// Motor placeholder model
+		#mirror([0, 0, 1])
+		import("EMAX_RSII_2206_2300kv.stl");
 	}
 }
 
@@ -52,9 +57,4 @@ module motormount(){
 	rotate([90, 0, 90])
 		translate([-beamw*1.5, 0, -beamw/2])
 		armbracket();
-
-	r = (19/2 + 3)*1.05;
-	#translate([0,r-2,0])
-	mirror([0,0,1])
-	import("EMAX_RSII_2206_2300kv.stl");
 }
